@@ -15,11 +15,6 @@ Thanks to Cyberdefenders [DetectionLabELK](https://github.com/cyberdefenders/Det
 
 DetectionLabELK is a fork from Chris Long's [DetectionLab](https://github.com/clong/DetectionLab) with ELK stack instead of Splunk.
 
-![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?style=flat-square)
-[![GitHub last commit](https://img.shields.io/github/last-commit/cyberdefenders/DetectionLabELK.svg?style=flat-square)](https://github.com/cyberdefenders/DetectionLabELK/commit/master)
-[![Twitter](https://img.shields.io/twitter/follow/DetectionLab.svg?style=social)](https://twitter.com/DetectionLab)
-[![Twitter](https://img.shields.io/twitter/follow/CyberDefenders?style=social)](https://twitter.com/CyberDefenders)
-
 ## Description:
 
 DetectionLabELK is the perfect lab to use if you would like to build effective detection capabilities. It has been designed with defenders in mind. Its primary purpose is to allow blueteams to quickly build a Windows domain that comes pre-loaded with security tooling and some best practices when it comes to system logging configurations. It can easily be modified to fit most needs or expanded to include additional hosts.
