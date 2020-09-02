@@ -8,6 +8,14 @@
             <param name="password">vagrant</param>
         </connection>
 
+        <connection name="kali">
+            <protocol>vnc</protocol>
+            <param name="hostname">192.168.38.66</param>
+            <param name="port">5901</param>
+            <param name="username">root</param>
+            <param name="password">kali</param>
+        </connection>
+
         <connection name="wef">
             <protocol>rdp</protocol>
             <param name="hostname">192.168.38.103</param>
