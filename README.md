@@ -1,3 +1,14 @@
+## Changes made to fit my needs:
+- Added a Kali Box with VNC (reachable trough Guacamole)
+- Adjusted CPU & RAM of each machine as i deploy on Server
+
+
+
+Here goes the original Readme :)
+
+Thanks to Cyberdefenders [DetectionLabELK](https://github.com/cyberdefenders/DetectionLabELK) & Chris Long's [DetectionLab](https://github.com/clong/DetectionLab) 
+
+
 ![DetectionLab](./img/DetectionLabELK-new.jpg)
 
 # DetectionLabELK
