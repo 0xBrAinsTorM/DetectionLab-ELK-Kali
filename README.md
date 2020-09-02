@@ -1,5 +1,5 @@
 ## Changes made to fit my needs:
-- Added a Kali Box with VNC (reachable trough Guacamole)
+- Added a Kali Box with VNC (reachable through Guacamole)
 - Adjusted CPU & RAM of each machine as i deploy on Server
 
 
