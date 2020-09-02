@@ -9,16 +9,16 @@ Vagrant.configure("2") do |config|
 
     cfg.vm.provider "vmware_desktop" do |v, override|
       v.vmx["displayname"] = "logger"
-      v.memory = 4096
-      v.cpus = 2
+      v.memory = 6144
+      v.cpus = 4
       v.gui = false
     end
 
     cfg.vm.provider "virtualbox" do |vb, override|
       vb.gui = false
       vb.name = "logger"
-      vb.customize ["modifyvm", :id, "--memory", 4096]
-      vb.customize ["modifyvm", :id, "--cpus", 2]
+      vb.customize ["modifyvm", :id, "--memory", 6144]
+      vb.customize ["modifyvm", :id, "--cpus", 4]
       vb.customize ["modifyvm", :id, "--vram", "32"]
       vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
@@ -27,6 +27,31 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "kali" do |cfg|
+    cfg.vm.box = "kalilinux/rolling"
+    cfg.vm.hostname = "kali"
+    cfg.vm.provision :shell, path: "kali.sh"
+    cfg.vm.network :private_network, ip: "192.168.38.66", gateway: "192.168.38.1", dns: "8.8.8.8"
+
+    cfg.vm.provider "vmware_desktop" do |v, override|
+      v.vmx["displayname"] = "kali"
+      v.memory = 4096
+      v.cpus = 4
+      v.gui = false
+    end
+
+    cfg.vm.provider "virtualbox" do |vb, override|
+      vb.gui = false
+      vb.name = "kali"
+      vb.customize ["modifyvm", :id, "--memory", 4096]
+      vb.customize ["modifyvm", :id, "--cpus", 4]
+      vb.customize ["modifyvm", :id, "--vram", "128"]
+      vb.customize ["modifyvm", :id, "--nicpromisc2", "allow-all"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+    end
+  end
 
    config.vm.define "dc" do |cfg|
      cfg.vm.box = "cyberdefenders/win2016"
@@ -63,8 +88,8 @@ Vagrant.configure("2") do |config|
 
      cfg.vm.provider "vmware_desktop" do |v, override|
        v.vmx["displayname"] = "dc.windomain.local"
-       v.memory = 3072
-       v.cpus = 2
+       v.memory = 8192 
+       v.cpus = 4
        v.gui = false
        v.enable_vmrun_ip_lookup = false
      end
@@ -73,8 +98,8 @@ Vagrant.configure("2") do |config|
        vb.gui = false
        vb.name = "dc.windomain.local"
        vb.default_nic_type = "82545EM"
-       vb.customize ["modifyvm", :id, "--memory", 3072]
-       vb.customize ["modifyvm", :id, "--cpus", 2]
+       vb.customize ["modifyvm", :id, "--memory", 8192]
+       vb.customize ["modifyvm", :id, "--cpus", 4]
        vb.customize ["modifyvm", :id, "--vram", "32"]
        vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -116,8 +141,8 @@ Vagrant.configure("2") do |config|
 
      cfg.vm.provider "vmware_desktop" do |v, override|
        v.vmx["displayname"] = "wef.windomain.local"
-       v.memory = 2048
-       v.cpus = 2
+       v.memory = 8192
+       v.cpus = 4
        v.gui = false
        v.enable_vmrun_ip_lookup = false
      end
@@ -126,8 +151,8 @@ Vagrant.configure("2") do |config|
        vb.gui = false
        vb.name = "wef.windomain.local"
        vb.default_nic_type = "82545EM"
-       vb.customize ["modifyvm", :id, "--memory", 2048]
-       vb.customize ["modifyvm", :id, "--cpus", 2]
+       vb.customize ["modifyvm", :id, "--memory", 8192]
+       vb.customize ["modifyvm", :id, "--cpus", 4]
        vb.customize ["modifyvm", :id, "--vram", "32"]
        vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -165,8 +190,8 @@ Vagrant.configure("2") do |config|
        v.vmx["displayname"] = "win10.windomain.local"
        v.vmx["gui.fullscreenatpoweron"] = "FALSE"
        v.vmx["gui.viewModeAtPowerOn"] = "windowed"
-       v.memory = 2048
-       v.cpus = 1
+       v.memory = 8192
+       v.cpus = 4
        v.gui = true
        v.enable_vmrun_ip_lookup = false
      end
@@ -175,8 +200,8 @@ Vagrant.configure("2") do |config|
        vb.gui = false
        vb.name = "win10.windomain.local"
        vb.default_nic_type = "82545EM"
-       vb.customize ["modifyvm", :id, "--memory", 2048]
-       vb.customize ["modifyvm", :id, "--cpus", 2]
+       vb.customize ["modifyvm", :id, "--memory", 8192]
+       vb.customize ["modifyvm", :id, "--cpus", 4]
        vb.customize ["modifyvm", :id, "--vram", "32"]
        vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
        vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
