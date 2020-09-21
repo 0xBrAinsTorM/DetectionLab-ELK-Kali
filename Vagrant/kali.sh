@@ -36,7 +36,7 @@ HOME=/root
 export USER HOME
 case" '$1' "in
 start)
-/usr/bin/vncserver :1 -localhost no
+/usr/bin/vncserver :1 -localhost no -geometry 1920x886
 ;;
 stop)
 pkill Xtigervnc
